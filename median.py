@@ -10,8 +10,8 @@ def process(image, k):
 	for i in range(height):
 		for j in range(width):
 			vals = []
-			for y in range(i-k/2,i+k/2+1):
-				for x in range(j-k/2,j+k/2+1):
+			for y in range(i-k//2,i+k//2+1):
+				for x in range(j-k//2,j+k//2+1):
 					r, c = y, x
 					if (y < 0): r = 0
 					if (x < 0): c = 0
@@ -19,10 +19,10 @@ def process(image, k):
 					if (x >= width): c = width - 1 	
 					vals.append(pix[r,c][0]*(256**2)+pix[r,c][1]*256+pix[r,c][2])
 			vals = np.sort(vals)	
-			val = vals[len(vals)/2]
-			r = val / (256**2)
+			val = vals[len(vals)//2]
+			r = val // (256**2)
 			val -= r * (256**2)
-			g = val / 256
+			g = val // 256
 			b = val % 256
 			draw.point((i, j), (r, g, b)) 
 

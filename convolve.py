@@ -19,8 +19,8 @@ def processPixel(height, width, pix, i, j, kernel):
 	#height, width = pix.size[0], pix.size[1]
 	(kernelHeight, kernelWidth) = kernel.shape
 	for (r,c), k in np.ndenumerate(kernel):
-		posY = i + (r - kernelHeight/2)
-		posX = j + (c - kernelWidth/2)			
+		posY = i + (r - kernelHeight//2)
+		posX = j + (c - kernelWidth//2)			
 		if not (0 <= posX < width) or not (0 <= posY < height):
 			continue
 		r += pix[posY, posX][0] * k
