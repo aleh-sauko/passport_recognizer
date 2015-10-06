@@ -13,28 +13,27 @@ def bounded(x):
 	if (x < 0): x = 0
 	return int(x)
 
-def processPixel(height, width, pix, i, j, kernel):
+def processPixel(width, height, pix, i, j, kernel):
 	kernel = normalize(kernel)
 	r, g, b = 0, 0, 0
-	#height, width = pix.size[0], pix.size[1]
-	(kernelHeight, kernelWidth) = kernel.shape
-	for (r,c), k in np.ndenumerate(kernel):
-		posY = i + (r - kernelHeight//2)
-		posX = j + (c - kernelWidth//2)			
-		if not (0 <= posX < width) or not (0 <= posY < height):
+	(kernelWidth, kernelHeight) = kernel.shape
+	for (cc,rr), k in np.ndenumerate(kernel):
+		posX = i + (cc - kernelWidth//2)			
+		posY = j + (rr - kernelHeight//2)
+		if not (0 <= posX < width) or not (0 <= posY < height): 
 			continue
-		r += pix[posY, posX][0] * k
-		g += pix[posY, posX][1] * k
-		b += pix[posY, posX][2] * k
+		r += pix[posX, posY][0] * k
+		g += pix[posX, posY][1] * k
+		b += pix[posX, posY][2] * k
 	return (bounded(r), bounded(g), bounded(b))
 
 def process(image, kernel):
-	draw = ImageDraw.Draw(image)
-	height = image.size[0]
-	width = image.size[1]
+	width, height = image.size
 	pix = image.load()
-	for i in range(height):
-		for j in range(width):
-			draw.point((i, j), processPixel(height, width, pix, i, j, kernel))
+	draw = ImageDraw.Draw(image)
+	for i in range(width):
+		for j in range(height):
+			draw.point((i, j), processPixel(width, height, pix, i, j, kernel))
+	return image
 
 
