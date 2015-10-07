@@ -11,6 +11,9 @@ def bound(x):
 	elif x > 255 : x = 255
 	return int(x)
 
+def boundPixel(pix):
+	return (bound(pix[0]), bound(pix[1]), bound(pix[2]))
+
 def bordersCorrect(size, t, b, l, r):
 	if t < 0 or l < 0 or (b > size[0]) or (r > size[1]):
 		return False
@@ -25,7 +28,7 @@ def doConvolution(section, kernel, size):
 			r += (section[i,j][0] * kernel[i,j])//div 
 			g += (section[i,j][1] * kernel[i,j])//div 
 			b += (section[i,j][2] * kernel[i,j])//div 
-	return (bound(r), bound(g), bound(b))
+	return boundPixel((r,g,b))
 
 def filter(original, result, kernel, size):
 	kSize = kernel.shape
