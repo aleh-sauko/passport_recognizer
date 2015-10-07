@@ -8,3 +8,10 @@ previt_Snd = np.array([[-1,0,1],[-1,0,1],[-1,0,1]])
 
 
 edgeDetection_Dict = { 'sobel': (sobel_Fst, sobel_Snd), 'previt': (previt_Fst, previt_Snd) }
+
+blur = np.array([[1.,2,1],[2,4,2],[1,2,1]])
+blur5 = np.array([[1.,4,7,4,1], [4,16,26,16,4], [7,26,41,26,7], [1,4,7,4,1], [4,16,26,16,4]])
+clarify = np.array([[-1,-1,-1],[-1,9,-1],[-1,-1,-1]])
+noize = np.array([[1,1,1],[1,1,1],[1,1,1]])
+
+kernel_Dict = { 'blur': blur, 'blur5': blur5, 'clarify': clarify, 'noize': noize }
