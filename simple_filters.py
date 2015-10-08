@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw
+import math
 import numpy as np
 
 def make_gray(pixels, width, height):
@@ -31,4 +31,16 @@ def make_black_white(pixels, width, height, factor):
 			else:
 				r,g,b = 0,0,0
 			pixels[i, j] = (r, g, b)
+
+def log2(x):
+	return int(self.factor * math.log2(1 + x))
+
+def make_bright(pixels, width, height, factor):
+	for row in range(width):
+		for col in range(height):
+			r = factor * math.log(1 + pixels[row, col][0])
+			g = factor * math.log(1 + pixels[row, col][1])
+			b = factor * math.log(1 + pixels[row, col][2])
+			pixels[row, col] = (int(r), int(g), int(b))
+
 

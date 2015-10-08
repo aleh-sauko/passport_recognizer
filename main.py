@@ -38,6 +38,9 @@ simple.make_gray(pixels, width, height)
 image.show()
 image.save("output_images/gray_{file_name}".format(file_name = file_name))
 
+# bright_factor = 50
+# simple.make_bright(pixels, width, height, bright_factor)
+
 # will have gray and negative
 # simple.make_negative(pixels, width, height)
 
