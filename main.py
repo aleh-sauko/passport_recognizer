@@ -1,9 +1,10 @@
-import numpy as np 
+import numpy as np
 from PIL import Image, ImageDraw
 import sys
 import convolve
 import median
-				
+import black_and_white
+
 kernel_blur = np.array([[1.,2,1],[2,4,2],[1,2,1]])
 kernel_blur5 = np.array([[1.,4,7,4,1],
 												[4,16,26,16,4],
@@ -25,5 +26,8 @@ if (len(sys.argv) > 2 and sys.argv[2] in kernel_dictionary):
 elif sys.argv[2] == 'median':
 	median.process(image, int(sys.argv[3]))
 
-image.save("res.png", "png")
+image.save("res.jpg", "JPEG")
 
+
+# factor = 127
+# black_and_white.process(image, factor)
