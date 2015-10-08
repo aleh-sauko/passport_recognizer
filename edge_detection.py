@@ -7,7 +7,7 @@ def get_gradient(d1, d2):
 	return math.sqrt(math.pow(d1,2) + math.pow(d2,2))
 
 def get_gradient_from_pixels(a, b):
-	return (getGradient(a[0], b[0]), getGradient(a[1], b[1]), getGradient(a[2],b[2]))
+	return (get_gradient(a[0], b[0]), get_gradient(a[1], b[1]), get_gradient(a[2],b[2]))
 
 
 def normalize_pix(pix, div):
