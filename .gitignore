@@ -1,4 +1,9 @@
 *.pyc
 *.swp
+.DS_Store
 passport.jpg
 res.jpg
+
+
+/src_images
+/output_images

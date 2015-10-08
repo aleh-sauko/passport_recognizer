@@ -4,6 +4,7 @@ import sys
 import convolve
 import median
 import black_and_white
+import gauss
 
 kernel_blur = np.array([[1.,2,1],[2,4,2],[1,2,1]])
 kernel_blur5 = np.array([[1.,4,7,4,1],
@@ -31,3 +32,7 @@ image.save("res.jpg", "JPEG")
 
 # factor = 127
 # black_and_white.process(image, factor)
+
+# sigma = 5
+# radius = 3
+# gauss.process(image, sigma, radius)
