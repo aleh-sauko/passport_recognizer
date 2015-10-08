@@ -21,7 +21,5 @@ def process(image, sigma, radius):
     gauss_kernel = build_gauss_kernel(pixels, sigma, radius)
 
     convolve.process(image, gauss_kernel)
-    # kernel_summ = np.sum(gauss_kernel)
-
 
     image.show()
