@@ -32,9 +32,6 @@ def make_black_white(pixels, width, height, factor):
 				r,g,b = 0,0,0
 			pixels[i, j] = (r, g, b)
 
-def log2(x):
-	return int(self.factor * math.log2(1 + x))
-
 def make_bright(pixels, width, height, factor):
 	for row in range(width):
 		for col in range(height):
